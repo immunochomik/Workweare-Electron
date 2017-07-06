@@ -6,6 +6,5 @@
   "author": "Brad Stewart <me@bradstewart.co>",
   "main": "background.js",
   "dependencies": {
-    "jquery": "2.2.2"
   }
 }

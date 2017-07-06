@@ -14,6 +14,27 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e"
   },
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "bootstrap-webpack": "0.0.5",
+    "d3": "^4.9.1",
+    "datatables.net": "^2.1.1",
+    "datatables.net-dt": "^2.1.1",
+    "exports-loader": "^0.6.3",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "imports-loader": "^0.6.5",
+    "jquery": "^2.2.2",
+    "jquery-datetimepicker": "^2.5.4",
+    "jquery-ui": "^1.12.1",
+    "leveldown": "^1.7.2",
+    "pouchdb": "^5.3.1",
+    "pouchdb-quick-search": "^1.1.1",
+    "style-loader": "^0.13.1",
+    "vue": "^2.0.0",
+    "vue-router": "^2.0.0",
+    "pouchdb-browser": "^6.0.0"
+  },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
@@ -55,6 +76,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.24",
     "karma-webpack": "^1.7.0",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
     "mkdirp": "^0.5.1",
     "moment": "2.12.0",
     "ncp": "^2.0.0",
@@ -64,16 +87,15 @@
     "selenium-server": "2.52.0",
     "tree-kill": "^1.1.0",
     "url-loader": "^0.5.7",
-    "vue": "^1.0.17",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
-    "vue-loader": "^8.3.0",
-    "vue-router": "^0.7.11",
+    "vue-loader": "^9.0.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-externals-plugin": "1.0.0",
     "webpack-hot-middleware": "^2.6.0",
-    "webpack-merge": "^0.8.3"
+    "webpack-merge": "^0.8.3",
+    "webpack-dev-server": "^1.12.0"
   }
 }

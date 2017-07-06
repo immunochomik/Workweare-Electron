@@ -31,20 +31,24 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /vue-devtools|node_modules/
-      }
+      //{
+      //  test: /\.vue$/,
+      //  loader: 'eslint',
+      //  include: projectRoot,
+      //  exclude: /node_modules/
+      //},
+      //{
+      //  test: /\.js$/,
+      //  loader: 'eslint',
+      //  include: projectRoot,
+      //  exclude: /vue-devtools|node_modules/
+      //}
     ],
     loaders: [
+      {
+        test:/\.css$/,
+        loader: 'style-loader!css-loader'
+      },
       {
         test: /\.vue$/,
         loader: 'vue'
