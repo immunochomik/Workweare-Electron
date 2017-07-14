@@ -3,15 +3,21 @@
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 
-import { app, BrowserWindow } from 'electron'
-import path from 'path'
+import { app, BrowserWindow, globalShortcut } from 'electron';
+import path from 'path';
 
-let mainWindow
+
+
+let mainWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 768
+  })
+
+  globalShortcut.register('CommandOrControl+Alt+I', () => {
+    mainWindow.openDevTools()
   })
 
   // Load the HTML file directly from the webpack dev server if
@@ -22,9 +28,6 @@ app.on('ready', () => {
 
   mainWindow.loadURL(mainURL)
 
-  if (process.env.NODE_ENV !== 'production') {
-    //mainWindow.openDevTools()
-  }
 
   mainWindow.on('closed', () => {
     mainWindow = null
