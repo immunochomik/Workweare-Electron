@@ -1,14 +1,13 @@
-import StoreCollection from '../storeNedb';
-var store = new StoreCollection.Collection('workwear', {'fieldName': '_t'});
-
+import StoreCollection from '../storeCollection';
 var _ = require('lodash');
+var store = new StoreCollection.Collection('workwear');
 import helpers from '../helpers/helpers.js';
 _.extend(window, helpers);
 
 var makeKey = function(parts, doc) {
   var key = [];
   _.each(parts, function(part) {
-    key.push(doc[part]);
+    key.push(doc.doc[part]);
   });
   return key.join('_').replace(/_$/g, '');
 };
@@ -16,12 +15,6 @@ var makeKey = function(parts, doc) {
 var debug = 0;
 // TODO use fields or fieldsObject only
 var Model = (function() {
-
-  var listNeDb = function(callback) {
-    debug && console.log('LIST', callback);
-    store.find({_t: this.uni}, callback);
-  };
-
   function Model(settings) {
     this.title = settings.title;
     this.uni = settings.uni || this.title.replace(/ /g, '');
@@ -67,17 +60,14 @@ var Model = (function() {
     if(!Array.isArray(oKey)) {
       oKey = [oKey];
     }
-    console.log('oKey', oKey);
     if(oValue && !Array.isArray(oValue)) {
       oValue = [oValue];
     }
-    console.log('oValue', oValue);
     this.list(function(resp) {
-      _.each(resp, function(doc) {
-        if(args.condition && !args.condition(doc)) {
+      _.each(resp.rows, function(doc) {
+        if(args.condition && !args.condition(doc.doc)) {
           return;
         }
-
         var usedKey = makeKey(oKey, doc);
         var usedValue = usedKey;
         if(oValue) {
@@ -120,21 +110,32 @@ var Model = (function() {
    * @param start
    * @param end
    */
-  Model.prototype.list = listNeDb;
-  Model.prototype.get = function(id, callback, errorCallback) {
-    if(! id.startsWith(this.uni ) ) {
-      id = '{0}_{1}'.f([this.uni, id])
-    }
-    debug && console.log('Get', id);
-    store.get(id, callback, errorCallback);
+  Model.prototype.list = function(callback, start, end) {
+    debug && console.log('LIST');
+    start = start || '';
+    end = end ? this.uni + '_' + end : '\uffff';
+    start = this.uni + '_' + start;
+    var args = {
+      include_docs: true,
+      startkey: start,
+      endkey: end,
+    };
+    debug && pp(args);
+    store.allDocs(args).then(res => {
+      res.rows = _.filter(res.rows, function(item) {
+        return item.id.indexOf(start) == 0;
+      });
+      res.total_rows = res.rows.length;
+      callback(res);
+    }).catch(err => {
+      console.log('Error', err);
+    });
   };
-  Model.prototype.update = function(id, cryteria, item, callback) {
-    store.update(
-      Object.assign({_id: id}, cryteria || {}),
-      Object.assign({_id: id}, item),
-      {multi: false},
-      callback
-    )
+  Model.prototype.get = function(id, callback, errorCallback) {
+    if(id.indexOf(this.uni) !== 0) {
+      id = this.uni + '_' + id;
+    }
+    store.get(id, callback, errorCallback);
   };
   Model.prototype.upsert = function(id, item, callback) {
     item = this.onUpsert(item);
@@ -142,7 +143,6 @@ var Model = (function() {
       return;
     }
     item['_id'] = id || this.makeId(item);
-    item['_t'] = this.uni;
     store.upsert(item, callback);
   };
   Model.prototype.onUpsert = function(data) {
@@ -153,10 +153,9 @@ var Model = (function() {
     }
     return data;
   };
-  Model.prototype.insert = function(item, callback) {
-    item._id = this.makeId(item);
-    item['_t'] = this.uni;
-    store.insert(item, callback)
+  Model.prototype.put = function(item, callback) {
+    item['_id'] = this.makeId(item);
+    store.upsert(item, callback);
   };
   Model.prototype.removeById = function(id, callback, beforeRemove) {
     store.removeById(id, callback, beforeRemove);
@@ -166,9 +165,6 @@ var Model = (function() {
   };
   return Model;
 })();
-
-
-
 
 export default {
   Model,

@@ -16,6 +16,8 @@ app.on('ready', () => {
     height: 768
   })
 
+  //mainWindow.openDevTools()
+
   globalShortcut.register('CommandOrControl+Alt+I', () => {
     mainWindow.openDevTools()
   })

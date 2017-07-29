@@ -58,10 +58,16 @@
 </template>
 <script>
   const dbName = 'workwear';
+  //import StoreCollection from '../storeNedb';
+  //var store = new StoreCollection.Collection(dbName,  {'fieldName': '_t'});
+
   import StoreCollection from '../storeCollection';
+  var store = new StoreCollection.Collection(dbName);
+
+
+
   import Vue from 'vue';
   var _ = require('lodash');
-  var store = new StoreCollection.Collection(dbName);
 
 
   function findInDoc(doc, key, expected, compare) {

@@ -9,13 +9,11 @@ var WorkPositions = new Model.Model({
     {name: 'Description', type :'text'},
     {name: 'WorkweareTypesHelper', type:'select', options: {},
       'class':'ignore-input', extend:function(vm) {
-      vm.$nextTick(function () {
         wTypes.generateOptions({
           oKey:['Description'],
           callback : function(options) {
             vm.fieldsObject.WorkweareTypesHelper.options = options;
           }
-        });
       });
       vm.$watch('fieldsObject.WorkweareTypesHelper.value', function(value) {
         var output = vm.fieldsObject.WorkweareTypes;

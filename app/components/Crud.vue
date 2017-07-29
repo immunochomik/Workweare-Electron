@@ -67,6 +67,7 @@
 </template>
 
 <script>
+  const _ = _ || require('lodash');
   const debug = 0;
   const Crud = {
     name: 'Crud',
@@ -172,7 +173,7 @@
         this.addedMethods[id]();
       },
       onSubmit:function(e, i) {
-        console.log('ON SUBMIT');
+        debug && console.log('ON SUBMIT');
       },
       isEdit: function() {
         return this.currentId;
@@ -182,9 +183,13 @@
         var self = this;
         self.items = [];
         var d = new Date();
-        self.model.list( function(res) {
-          _.each(res.rows, function(doc) {
-            self.items.push(self.docToRow(doc.doc));
+        self.model.list( function(documents) {
+          documents = documents.rows || documents;  // documents.rows is for pouchdb
+          debug && console.log('Crud in list found', documents);
+          _.each(documents, function(doc) {
+            // doc.doc is for pouch db and doc for nedb
+            doc = doc.doc || doc;
+            self.items.push(self.docToRow(doc));
           });
           self.renderTable(d.getMilliseconds());
         });
@@ -206,9 +211,12 @@
         table.DataTable(data);
       },
       docToRow: function(doc) {
+        if( !doc) {
+          throw 'We need the document in docToRow'
+        }
         var row = [];
         _.each(this.columns, function(col) {
-          row.push(doc[col] || "");
+          row.push(doc[col] === undefined ? '' : doc[col]);
         });
         var temp = '<div style="text-align: right"><button class="btn btn-xs btn-danger delete-item" data-id="{0}">Delete</button> \
                     <button class="btn btn-xs btn-default edit-item" data-id="{0}">Edit</span></button></div>';

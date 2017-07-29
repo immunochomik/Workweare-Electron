@@ -49,6 +49,8 @@ var webpackConfig = merge(webpackBaseConfig, {
   ]
 })
 
+config.dev.vueDevTools = false;
+
 if (config.dev.vueDevTools) {
   webpackConfig.entry.app.unshift(
     './tools/vue-devtools/hook.js',

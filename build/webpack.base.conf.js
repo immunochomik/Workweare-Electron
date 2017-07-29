@@ -89,8 +89,8 @@ module.exports = {
       'clipboard',
       'crash-reporter',
       'screen',
-      'shell'
-    ])
+      'shell',
+    ]),
   ],
   vue: {
     loaders: cssLoaders()

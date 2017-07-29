@@ -215,7 +215,7 @@
       updateReleaseHistory: function(woekreId, workwear, kind) {
         console.log(woekreId, workwear);
         workwear += ('_' + (kind || 'new'));
-        rHistory.put({
+        rHistory.insert({
           DateTime: now(),
           EId : woekreId,
           Workwear: workwear,

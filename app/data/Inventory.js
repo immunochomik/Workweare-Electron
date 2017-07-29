@@ -9,6 +9,7 @@ var Inventory = new Model.Model({
     { name: 'Description', type :'select', options:{},  extend:function(vm) {
       vm.$watch('fieldsObject.Description.value', function (cur) {
         // this can and will get empty
+        console.log('Current is ', cur );
         if(!cur) {
           return;
         }
@@ -22,7 +23,7 @@ var Inventory = new Model.Model({
           });
         })
       });
-    } },
+    }},
     { name: 'Qty', type :'number', value:0},
     { name: 'Size', type :'select', options: {}},
     { name: 'Origin', type :'select', options : {New: 'new', Return : 'return'}},

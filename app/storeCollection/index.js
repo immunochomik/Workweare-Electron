@@ -1,4 +1,4 @@
-var PouchDB = require('pouchdb-browser')
+var PouchDB = require('pouchdb-browser');
 // I think that search need space for indexes and we do not use it in
 // workweare so i will comment it out
 //PouchDB.plugin(require('pouchdb-quick-search/lib'));

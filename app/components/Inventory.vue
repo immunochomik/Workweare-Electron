@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  var debug = false;
+  var debug = 1;
   import Inventory from '../data/Inventory.js'
   import WorkwearTypes from '../data/WorkwearTypes.js';
   var wTypes = WorkwearTypes.WorkwearTypes;
@@ -33,8 +33,8 @@
             crud_instance.addedMethods = {
               insertWorkwearTypes : function() {
                 // get data from types
-                wTypes.list(function(res) {
-                  _.each(res.rows, insertItemIfNotInInventory);
+                wTypes.list(function(documents) {
+                  _.each(documents, insertItemIfNotInInventory);
                   crud_instance.success('We are inserting workweare types int inventory, now you need to reload the page.')
                 });
               }
@@ -63,26 +63,19 @@
   export default Inventory_vue
 
   function insertItemIfNotInInventory(wType) {
-    var idBase = wType.id.replace(wTypes.uni, '').replace(/^_/, '');
-    var sizes = wTypes.extractSizes(wType.doc);
+    var document = wType.doc || wType;
+    var sizes = wTypes.extractSizes(document);
     _.each(sizes, function(size) {
-      var itemId = "{0}_{1}_new".f([idBase, size]);
-      inventory.get(itemId, function(doc) {
-            debug && console.log('Found', doc);
+      inventory.insert({
+            Description: document.Description + '_' + document.Gender,
+            Size: size,
+            Origin: 'new',
+            Qty: 0,
           },
-          function(err) {
-            if(err.status !== 404) {
-              console.error(err);
-              return;
-            }
-            inventory.put({
-              Description: wType.doc.Description + '_' + wType.doc.Gender,
-              Size: size,
-              Origin: 'new',
-              Qty: 0,
-            });
+          function(doc) {
+            console.log('Callback updated', doc);
           }
-      );
+      )
     });
   };
 
