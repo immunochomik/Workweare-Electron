@@ -25,7 +25,7 @@ function finishIt(what, err, result, callback) {
 var Collection = (function() {
   function Collection(name, index) {
     this.db = new Datastore({
-        filename: '/tmp/{0}.ndb'.f([name]),
+        filename: 'data/{0}.ndb'.f([name]),
         autoload: true
       });
     if(index) {
@@ -86,11 +86,12 @@ var Collection = (function() {
   Collection.prototype.removeById = function(id, callback, beforeRemove) {
     var self = this;
     if(beforeRemove) {
-      this.getById(id, function(err, doc) {
+      return this.db.findOne({_id: id}, function(err, doc) {
         finishIt('find', err, doc, beforeRemove);
         self.remove({_id: id}, callback)
       });
     }
+    self.remove({_id: id}, callback)
   };
   Collection.prototype.init = function(ddoc) {
     // build fucking indexes

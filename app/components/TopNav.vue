@@ -21,7 +21,6 @@
                     <li id="topNavLiWorkwearTypes" class="nav-li"><router-link to="/workweartypes">Workwear Types</router-link></li>
                     <li id="topNavLiWorkPositions" class="nav-li"><router-link to="/workpositions">Positions</router-link></li>
                     <li id="topNavLiToDo" class="nav-li"><router-link to="/todo">To Do</router-link></li>
-                    <li id="topNavLiData" class="nav-li"><router-link to="/data">data</router-link></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

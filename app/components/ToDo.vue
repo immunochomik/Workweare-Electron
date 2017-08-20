@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  var debug = 0;
+  var debug = 1;
   import Workers from '../data/Workers.js'
   import WorkPositions from '../data/WorkPositions.js';
   import WorkwearTypes from '../data/WorkwearTypes.js'
@@ -50,27 +50,27 @@
       // get goods out history for that worker
       rHistory.list(function(rHistory) {
         var received = {};
-        _.each(rHistory.rows, function(item) {
+        _.each(rHistory, function(item) {
           // get name from workwear description
-          var workweare = item.doc.Workwear.split('_')[0];
+          var workweare = item.Workwear.split('_')[0];
           if(! received[workweare]) {
             received[workweare] = []
           }
           //save what and when was given to the worker
-          received[workweare].push(item.doc.DateTime);
+          received[workweare].push(item.DateTime);
         });
         self.toDosForWorker(worker, received);
         self.context.renderTable();
-      }, worker.doc.Id + '_');
+      }, worker.Id + '_');
     };
 
     p.prototype.toDosForWorker = function(worker, received) {
       // we know what she received and
       // for each item in position get the date from last received and calculate nex data
-      var position = positions[worker.doc.Position];
+      var position = positions[worker.Position];
       for(var item in position) {
         var last = received[item] ? received[item][0] : false;
-        this.context.addToDo(worker.doc, item, whenNeeded(last, position[item]));
+        this.context.addToDo(worker, item, whenNeeded(last, position[item]).slice(0,10));
       }
     };
     p.prototype.neededSizelessWorkweare = function(itemClass, gender) {
@@ -90,7 +90,7 @@
       }
       var last = new Date(lastReceived);
       last = last.setMonth(last.getMonth() + parseInt(monthsAllowed));
-      return new Date(last).toISOString().replace('T', ' ').replace('.000Z', '');
+      return new Date(last).toISOString();
     }
 
     return p;
@@ -158,8 +158,8 @@
         // Take all workers
         var self = this;
         this.todos = [];
-        workers.list(function(data ) {
-          _.each(data.rows, function(worker) {
+        workers.list(function(data) {
+          _.each(data, function(worker) {
             self.privates.processWorker(worker);
           });
         });

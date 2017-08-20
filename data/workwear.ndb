@@ -1,0 +1,60 @@
+{"Description":"Buty_U","Qty":"100","Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"Description":"Czapka_F","Qty":4,"Size":10,"Origin":"new","_id":"I_Czapka_F_10_new","_t":"I"}
+{"Description":"Czapka_F","Qty":12,"Size":12,"Origin":"new","_id":"I_Czapka_F_12_new","_t":"I"}
+{"Description":"Czapka_F","Qty":1000,"Size":14,"Origin":"new","_id":"I_Czapka_F_14_new","_t":"I"}
+{"Description":"Czapka_F","Size":16,"Origin":"new","Qty":0,"_id":"I_Czapka_F_16_new","_t":"I"}
+{"Description":"Czapka_F","Size":18,"Origin":"new","Qty":0,"_id":"I_Czapka_F_18_new","_t":"I"}
+{"Description":"Czapka_F","Qty":"10","Size":20,"Origin":"new","_id":"I_Czapka_F_20_new","_t":"I"}
+{"Description":"czapka_M","Size":10,"Origin":"new","Qty":0,"_id":"I_czapka_M_10_new","_t":"I"}
+{"Description":"czapka_M","Size":11,"Origin":"new","Qty":0,"_id":"I_czapka_M_11_new","_t":"I"}
+{"Description":"czapka_M","Size":12,"Origin":"new","Qty":0,"_id":"I_czapka_M_12_new","_t":"I"}
+{"Description":"czapka_M","Size":13,"Origin":"new","Qty":0,"_id":"I_czapka_M_13_new","_t":"I"}
+{"Description":"czapka_M","Size":14,"Origin":"new","Qty":0,"_id":"I_czapka_M_14_new","_t":"I"}
+{"Description":"czapka_M","Size":15,"Origin":"new","Qty":0,"_id":"I_czapka_M_15_new","_t":"I"}
+{"Description":"czapka_M","Size":16,"Origin":"new","Qty":0,"_id":"I_czapka_M_16_new","_t":"I"}
+{"Description":"czapka_M","Size":17,"Origin":"new","Qty":0,"_id":"I_czapka_M_17_new","_t":"I"}
+{"Description":"czapka_M","Size":18,"Origin":"new","Qty":0,"_id":"I_czapka_M_18_new","_t":"I"}
+{"Description":"czapka_M","Size":19,"Origin":"new","Qty":0,"_id":"I_czapka_M_19_new","_t":"I"}
+{"Description":"czapka_M","Size":20,"Origin":"new","Qty":0,"_id":"I_czapka_M_20_new","_t":"I"}
+{"Description":"czapka_M","Size":21,"Origin":"new","Qty":0,"_id":"I_czapka_M_21_new","_t":"I"}
+{"Description":"czapka_M","Size":22,"Origin":"new","Qty":0,"_id":"I_czapka_M_22_new","_t":"I"}
+{"Description":"czapka_M","Size":23,"Origin":"new","Qty":0,"_id":"I_czapka_M_23_new","_t":"I"}
+{"Description":"czapka_M","Size":24,"Origin":"new","Qty":0,"_id":"I_czapka_M_24_new","_t":"I"}
+{"Description":"czapka_M","Size":25,"Origin":"new","Qty":0,"_id":"I_czapka_M_25_new","_t":"I"}
+{"Description":"czapka_M","Size":26,"Origin":"new","Qty":0,"_id":"I_czapka_M_26_new","_t":"I"}
+{"Description":"czapka_M","Size":27,"Origin":"new","Qty":0,"_id":"I_czapka_M_27_new","_t":"I"}
+{"Description":"czapka_M","Size":28,"Origin":"new","Qty":0,"_id":"I_czapka_M_28_new","_t":"I"}
+{"Description":"czapka_M","Size":29,"Origin":"new","Qty":0,"_id":"I_czapka_M_29_new","_t":"I"}
+{"Description":"czapka_M","Size":30,"Origin":"new","Qty":0,"_id":"I_czapka_M_30_new","_t":"I"}
+{"Description":"Buty","Gender":"U","Sizes":"","_id":"T_Buty_U","_t":"T"}
+{"Description":"Czapka","Gender":"F","Sizes":"10-20","_id":"T_Czapka_F","_t":"T"}
+{"Description":"czapka","Gender":"M","Sizes":"10-30 s:1","_id":"T_czapka_M","_t":"T"}
+{"Description":"Spredawca","WorkweareTypes":"Buty => 12;\nCzapka => 12;\n","_id":"WP_Spredawca","_t":"WP"}
+{"Id":"1","Name":"Ani","Position":"Spredawca","Gender":"F","Start":"2017-08-01","Sizes":"Czapka_F => [ 10 ] ","_id":"W_1","_t":"W"}
+{"$$indexCreated":{"fieldName":"_t","unique":false,"sparse":false}}
+{"DateTime":"2017-08-20 12:49:53","EId":"1","Workwear":"Buty_U__new","Qty":1,"_id":"RH_1_Buty_U__new_2017-08-20 12:49:53","_t":"RH"}
+{"Description":"Buty_U","Qty":99,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"DateTime":"2017-08-20 12:49:54","EId":"1","Workwear":"Buty_U__new","Qty":1,"_id":"RH_1_Buty_U__new_2017-08-20 12:49:54","_t":"RH"}
+{"Description":"Buty_U","Qty":98,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"DateTime":"2017-08-20 12:50:04","EId":"1","Workwear":"Czapka_F_10_new","Qty":1,"_id":"RH_1_Czapka_F_10_new_2017-08-20 12:50:04","_t":"RH"}
+{"Description":"Czapka_F","Qty":3,"Size":10,"Origin":"new","_id":"I_Czapka_F_10_new","_t":"I"}
+{"DateTime":"2017-08-20 12:50:06","EId":"1","Workwear":"Czapka_F_10_new","Qty":1,"_id":"RH_1_Czapka_F_10_new_2017-08-20 12:50:06","_t":"RH"}
+{"Description":"Czapka_F","Qty":2,"Size":10,"Origin":"new","_id":"I_Czapka_F_10_new","_t":"I"}
+{"DateTime":"2017-08-20 12:50:08","EId":"1","Workwear":"Buty_U__new","Qty":1,"_id":"RH_1_Buty_U__new_2017-08-20 12:50:08","_t":"RH"}
+{"Description":"Buty_U","Qty":97,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Buty_U__new_2017-08-20 12:49:54"}
+{"Description":"Buty_U","Qty":98,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Buty_U__new_2017-08-20 12:49:53"}
+{"Description":"Buty_U","Qty":99,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Czapka_F_10_new_2017-08-20 12:50:04"}
+{"Description":"Czapka_F","Qty":3,"Size":10,"Origin":"new","_id":"I_Czapka_F_10_new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Czapka_F_10_new_2017-08-20 12:50:06"}
+{"Description":"Czapka_F","Qty":4,"Size":10,"Origin":"new","_id":"I_Czapka_F_10_new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Buty_U__new_2017-08-20 12:50:08"}
+{"Description":"Buty_U","Qty":100,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"DateTime":"2017-08-20 12:51:11","EId":"1","Workwear":"Buty_U__new","Qty":1,"_id":"RH_1_Buty_U__new_2017-08-20 12:51:11","_t":"RH"}
+{"Description":"Buty_U","Qty":99,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"$$deleted":true,"_id":"RH_1_Buty_U__new_2017-08-20 12:51:11"}
+{"Description":"Buty_U","Qty":100,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}
+{"DateTime":"2017-08-07 13:51:31","Workwear":"Buty_U__new","Qty":"100","_id":"In_2017-08-07 13:51:31_Buty_U__new","_t":"In"}
+{"Description":"Buty_U","Qty":200,"Size":"","Origin":"new","_id":"I_Buty_U__new","_t":"I"}

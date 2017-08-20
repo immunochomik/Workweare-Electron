@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  var debug = 1;
   import ReleaseHistory from '../data/ReleaseHistory.js'
   import Workers from '../data/Workers.js';
   import Inventory from '../data/Inventory.js';
@@ -69,6 +70,7 @@
         if(!doc.Qty || !itemId) {
           return;
         }
+        debug && console.log('RH onDelete', doc);
         this.updateInventoryQty(itemId, parseInt(doc.Qty));
       },
       refresh: function() {

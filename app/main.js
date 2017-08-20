@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Data from './components/Data.vue';
 import Inventory from './components/Inventory.vue';
 import Workers from './components/Workers.vue';
 import WorkPositions from './components/WorkPositions.vue';
@@ -64,10 +63,6 @@ const router = new VueRouter({
     {
       path: '/todo',
       component: ToDo
-    },
-    {
-      path: '/data',
-      component: Data
     },
     {
       path: '*',
